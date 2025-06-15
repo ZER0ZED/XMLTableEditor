@@ -109,24 +109,36 @@ bool XMLWorker::LoadTableData(const QString &tableName, QTableWidget *tableWidge
 
     // Extract column headers and row data
     QStringList _columnHeaders = ExtractColumnHeaders(_tableElement);  // List of column names from table
-    QList<QStringList> _tableRows = ExtractTableRows(_tableElement);   // List of rows, each containing list of cell values
+    QMap<int, QStringList> _tableRows = ExtractTableRows(_tableElement);   // Map of row indices to row data
 
     // Configure table widget dimensions
     tableWidget->clear();
     tableWidget->setColumnCount(_columnHeaders.size());
-    tableWidget->setRowCount(_tableRows.size());
 
     // Set column headers
     tableWidget->setHorizontalHeaderLabels(_columnHeaders);
 
-    // Populate table with row data
-    for (int _row = 0; _row < _tableRows.size(); ++_row) {  // Current row index (0-based)
-        const QStringList &_rowData = _tableRows[_row];     // Values for current row
+    // Add all rows and cell data
+    int _rowIndex = 0;  // Actual row position in table widget (0-based)
+    
+    // Iterate through all rows in the map using QMap iterator
+    QMapIterator<int, QStringList> _iterator(_tableRows);  // Iterator for the map of rows
+    while (_iterator.hasNext()) {  // Loop through all entries in the map
+        _iterator.next();  // Move to next entry
+        
+        QStringList _rowData = _iterator.value();  // Cell values for current row
+        tableWidget->insertRow(_rowIndex);  // Add new row to table widget
+
+        // Process each cell in current row
         for (int _col = 0; _col < _rowData.size() && _col < _columnHeaders.size(); ++_col) {  // Current column index (0-based)
             QTableWidgetItem *_item = new QTableWidgetItem(_rowData[_col]);  // Table cell item containing XML cell data
-            tableWidget->setItem(_row, _col, _item);
+            tableWidget->setItem(_rowIndex, _col, _item);
         }
+        
+        _rowIndex++;  // Increment actual row position for next iteration
     }
+
+    tableWidget->setRowCount(_rowIndex);
 
     qDebug() << "Loaded table" << tableName << "with" << _tableRows.size() << "rows";
     return true;
@@ -363,30 +375,32 @@ QStringList XMLWorker::ExtractColumnHeaders(const QDomElement &tableElement)
 
 /**
  * @brief Extract all row data from table element
+ * @param tableElement DOM element representing the table
+ * @return QMap<int, QStringList> containing all row data, with row index as key
  */
-QList<QStringList> XMLWorker::ExtractTableRows(const QDomElement &tableElement)
+QMap<int, QStringList> XMLWorker::ExtractTableRows(const QDomElement &tableElement)
 {
-    QList<QStringList> rows;
+    QMap<int, QStringList> _rows;  // Map of row index to row data (row index as key, row data as value)
 
-    QDomNodeList rowNodes = tableElement.elementsByTagName(ROW_ELEMENT_NAME);
+    QDomNodeList _rowNodes = tableElement.elementsByTagName(ROW_ELEMENT_NAME);  // All row elements in table
 
     // Process each row element
-    for (int i = 0; i < rowNodes.size(); ++i) {
-        QDomElement rowElement = rowNodes.at(i).toElement();
-        QDomNodeList cellNodes = rowElement.elementsByTagName(CELL_ELEMENT_NAME);
+    for (int _i = 0; _i < _rowNodes.size(); ++_i) {  // Row index (0-based)
+        QDomElement _rowElement = _rowNodes.at(_i).toElement();  // Current row element
+        QDomNodeList _cellNodes = _rowElement.elementsByTagName(CELL_ELEMENT_NAME);  // All cells in current row
 
-        QStringList rowData;
+        QStringList _rowData;  // List to store all cell values in current row
 
         // Extract text content from each cell
-        for (int j = 0; j < cellNodes.size(); ++j) {
-            QDomElement cellElement = cellNodes.at(j).toElement();
-            rowData.append(cellElement.text());
+        for (int _j = 0; _j < _cellNodes.size(); ++_j) {  // Cell index (0-based)
+            QDomElement _cellElement = _cellNodes.at(_j).toElement();  // Current cell element
+            _rowData.append(_cellElement.text());  // Add cell text to row data
         }
 
-        rows.append(rowData);
+        _rows[_i] = _rowData;  // Store row data with row index as key
     }
 
-    return rows;
+    return _rows;  // Return map of all rows
 }
 
 /**

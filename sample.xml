@@ -74,6 +74,14 @@
             <cell name="salary">99999999999999999999999999999999999999999999999999</cell>
             <cell name="hire_date">2025-06-15</cell>
         </row>
+        <row>
+            <cell name="id">110</cell>
+            <cell name="first_name">potato</cell>
+            <cell name="last_name">burger</cell>
+            <cell name="department">hungry</cell>
+            <cell name="salary">100000000000</cell>
+            <cell name="hire_date">2005-05-1</cell>
+        </row>
     </table>
     <!-- Products Table -->
     <table name="products">

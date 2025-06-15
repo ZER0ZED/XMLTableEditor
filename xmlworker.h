@@ -10,6 +10,7 @@
 #include <QTextStream>
 #include <QTableWidget>
 #include <QTableWidgetItem>
+#include <QMap>
 #include <QDebug>
 
 /**
@@ -117,7 +118,7 @@ private:
      * @param tableElement DOM element representing the table
      * @return QList<QStringList> containing all row data
      */
-    QList<QStringList> ExtractTableRows(const QDomElement &tableElement);
+    QMap<int, QStringList> ExtractTableRows(const QDomElement &tableElement);
 
     /**
      * @brief Create new row element with specified data

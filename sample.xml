@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<database>
+    <!-- Employee Table -->
+    <table name="employees">
+        <row>
+            <cell name="id">101</cell>
+            <cell name="first_name">John</cell>
+            <cell name="last_name">Smith</cell>
+            <cell name="department">Engineering</cell>
+            <cell name="salary">75000</cell>
+            <cell name="hire_date">2023-05-15</cell>
+        </row>
+        <row>
+            <cell name="id">102</cell>
+            <cell name="first_name">Lisa</cell>
+            <cell name="last_name">Johnson</cell>
+            <cell name="department">Marketing</cell>
+            <cell name="salary">68000</cell>
+            <cell name="hire_date">2022-11-08</cell>
+        </row>
+        <row>
+            <cell name="id">103</cell>
+            <cell name="first_name">Michael</cell>
+            <cell name="last_name">Chen</cell>
+            <cell name="department">Engineering</cell>
+            <cell name="salary">82500</cell>
+            <cell name="hire_date">2021-07-22</cell>
+        </row>
+        <row>
+            <cell name="id">104</cell>
+            <cell name="first_name">Sarah</cell>
+            <cell name="last_name">Davis</cell>
+            <cell name="department">Finance</cell>
+            <cell name="salary">94000</cell>
+            <cell name="hire_date">2020-03-14</cell>
+        </row>
+        <row>
+            <cell name="id">105</cell>
+            <cell name="first_name">Robert</cell>
+            <cell name="last_name">Taylor</cell>
+            <cell name="department">Human Resources</cell>
+            <cell name="salary">65000</cell>
+            <cell name="hire_date">2024-01-09</cell>
+        </row>
+        <row>
+            <cell name="id">106</cell>
+            <cell name="first_name">Jennifer</cell>
+            <cell name="last_name">Wilson</cell>
+            <cell name="department">Engineering</cell>
+            <cell name="salary">79500</cell>
+            <cell name="hire_date">2022-09-30</cell>
+        </row>
+        <row>
+            <cell name="id">107</cell>
+            <cell name="first_name">David</cell>
+            <cell name="last_name">Martinez</cell>
+            <cell name="department">Marketing</cell>
+            <cell name="salary">71200</cell>
+            <cell name="hire_date">2023-02-15</cell>
+        </row>
+        <row>
+            <cell name="id">108</cell>
+            <cell name="first_name">Ammar</cell>
+            <cell name="last_name">Ahmed</cell>
+            <cell name="department">Potato </cell>
+            <cell name="salary">10000000000000000000000000000000</cell>
+            <cell name="hire_date">2025-06-11</cell>
+        </row>
+        <row>
+            <cell name="id">109</cell>
+            <cell name="first_name">Panana</cell>
+            <cell name="last_name">@_@</cell>
+            <cell name="department">Managment :)</cell>
+            <cell name="salary">99999999999999999999999999999999999999999999999999</cell>
+            <cell name="hire_date">2025-06-15</cell>
+        </row>
+    </table>
+    <!-- Products Table -->
+    <table name="products">
+        <row>
+            <cell name="product_id">P001</cell>
+            <cell name="name">Smartphone X1</cell>
+            <cell name="category">Electronics</cell>
+            <cell name="price">799.99</cell>
+            <cell name="stock">120</cell>
+        </row>
+        <row>
+            <cell name="product_id">P002</cell>
+            <cell name="name">Laptop Pro</cell>
+            <cell name="category">Electronics</cell>
+            <cell name="price">1299.99</cell>
+            <cell name="stock">65</cell>
+        </row>
+        <row>
+            <cell name="product_id">P003</cell>
+            <cell name="name">Desk Chair</cell>
+            <cell name="category">Furniture</cell>
+            <cell name="price">249.50</cell>
+            <cell name="stock">42</cell>
+        </row>
+        <row>
+            <cell name="product_id">P004</cell>
+            <cell name="name">Coffee Maker</cell>
+            <cell name="category">Appliances</cell>
+            <cell name="price">89.95</cell>
+            <cell name="stock">87</cell>
+        </row>
+        <row>
+            <cell name="product_id">P005</cell>
+            <cell name="name">Bluetooth Speaker</cell>
+            <cell name="category">Electronics</cell>
+            <cell name="price">59.99</cell>
+            <cell name="stock">210</cell>
+        </row>
+    </table>
+    <!-- Customer Orders Table -->
+    <table name="orders">
+        <row>
+            <cell name="order_id">ORD-2025-001</cell>
+            <cell name="customer_name">Alice Williams</cell>
+            <cell name="order_date">2025-05-10</cell>
+            <cell name="product">Laptop Pro</cell>
+            <cell name="quantity">1</cell>
+            <cell name="total">1299.99</cell>
+            <cell name="status">Shipped</cell>
+        </row>
+        <row>
+            <cell name="order_id">ORD-2025-002</cell>
+            <cell name="customer_name">Thomas Brown</cell>
+            <cell name="order_date">2025-05-12</cell>
+            <cell name="product">Smartphone X1</cell>
+            <cell name="quantity">2</cell>
+            <cell name="total">1599.98</cell>
+            <cell name="status">Processing</cell>
+        </row>
+        <row>
+            <cell name="order_id">ORD-2025-003</cell>
+            <cell name="customer_name">Emily Garcia</cell>
+            <cell name="order_date">2025-05-15</cell>
+            <cell name="product">Coffee Maker</cell>
+            <cell name="quantity">1</cell>
+            <cell name="total">89.95</cell>
+            <cell name="status">Delivered</cell>
+        </row>
+        <row>
+            <cell name="order_id">ORD-2025-004</cell>
+            <cell name="customer_name">James Miller</cell>
+            <cell name="order_date">2025-05-18</cell>
+            <cell name="product">Desk Chair</cell>
+            <cell name="quantity">4</cell>
+            <cell name="total">998.00</cell>
+            <cell name="status">Processing</cell>
+        </row>
+    </table>
+    <!-- Project Management Table -->
+    <table name="projects">
+        <row>
+            <cell name="project_id">PROJ-A100</cell>
+            <cell name="title">Website Redesign</cell>
+            <cell name="manager">Sarah Davis</cell>
+            <cell name="start_date">2025-03-01</cell>
+            <cell name="deadline">2025-07-30</cell>
+            <cell name="budget">45000</cell>
+            <cell name="status">In Progress</cell>
+            <cell name="completion">35</cell>
+        </row>
+        <row>
+            <cell name="project_id">PROJ-B200</cell>
+            <cell name="title">Mobile App Development</cell>
+            <cell name="manager">Michael Chen</cell>
+            <cell name="start_date">2025-01-15</cell>
+            <cell name="deadline">2025-08-15</cell>
+            <cell name="budget">120000</cell>
+            <cell name="status">In Progress</cell>
+            <cell name="completion">52</cell>
+        </row>
+        <row>
+            <cell name="project_id">PROJ-C300</cell>
+            <cell name="title">Database Migration</cell>
+            <cell name="manager">Jennifer Wilson</cell>
+            <cell name="start_date">2025-04-10</cell>
+            <cell name="deadline">2025-06-20</cell>
+            <cell name="budget">28000</cell>
+            <cell name="status">In Progress</cell>
+            <cell name="completion">78</cell>
+        </row>
+        <row>
+            <cell name="project_id">PROJ-D400</cell>
+            <cell name="title">Brand Rebranding</cell>
+            <cell name="manager">David Martinez</cell>
+            <cell name="start_date">2025-02-05</cell>
+            <cell name="deadline">2025-05-30</cell>
+            <cell name="budget">65000</cell>
+            <cell name="status">Completed</cell>
+            <cell name="completion">100</cell>
+        </row>
+    </table>
+</database>
